@@ -9,7 +9,7 @@ pipeline {
             steps {
                 echo 'Cloning from GitHub...'
                 git branch: 'main',
-                    url: 'https://github.com/Mallikarjun46/portfolio-website.git'
+                    url: 'https://github.com/Mallikarjun46/Portfolio-website---Mallikarjun-K.git'
             }
         }
         stage('Build Docker Image') {
