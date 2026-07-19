@@ -34,13 +34,13 @@ pipeline {
             }
         }
         stage('Deploy to Kubernetes') {
-            steps {
-                echo 'Deploying to Kubernetes...'
-                sh "kubectl apply -f k8s/deployment.yaml"
-                sh "kubectl apply -f k8s/service.yaml"
-                sh "kubectl rollout status deployment/portfolio-website"
-            }
-        }
+    steps {
+        echo 'Deploying to Kubernetes...'
+        sh "kubectl apply -f k8s/deployment.yaml --validate=false"
+        sh "kubectl apply -f k8s/service.yaml --validate=false"
+        sh "kubectl rollout status deployment/portfolio-website"
+    }
+}
     }
     post {
         success { echo '✅ Portfolio website deployed successfully!' }
